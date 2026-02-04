@@ -2,9 +2,18 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
-import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+import {
+	ModuleRegistry,
+	ClientSideRowModelModule,
+	ColumnApiModule,
+} from 'ag-grid-community'
+
 import { TreeDataModule } from 'ag-grid-enterprise'
 
-ModuleRegistry.registerModules([AllCommunityModule, TreeDataModule])
+ModuleRegistry.registerModules([
+	ClientSideRowModelModule,
+	TreeDataModule,
+	ColumnApiModule,
+])
 
 createApp(App).mount('#app')

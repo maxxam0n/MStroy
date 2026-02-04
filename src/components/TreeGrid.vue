@@ -1,6 +1,6 @@
 <template>
 	<AgGridVue
-		style="height: 100%"
+		style="height: 500px"
 		:treeData="true"
 		:rowData="rowData"
 		:columnDefs="columnDefs"
@@ -18,8 +18,8 @@ import type {
 	GridReadyEvent,
 	ICellRendererParams,
 } from 'ag-grid-community'
-import { TreeStore } from './TreeStore'
-import type { TreeItem } from './types'
+import { TreeStore } from '../shared/TreeStore'
+import type { TreeItem } from '../shared/types'
 
 interface RowData extends TreeItem {
 	path: string[]
@@ -44,6 +44,8 @@ const columnDefs: ColDef<RowData>[] = [
 	{
 		colId: 'order',
 		headerName: '№ п/п',
+		resizable: false,
+		headerClass: 'header-cell',
 		valueGetter: params => {
 			let displayIndex = -1
 			params.api.forEachNodeAfterFilterAndSort((node, index) => {
@@ -53,18 +55,22 @@ const columnDefs: ColDef<RowData>[] = [
 				? displayIndex + 1
 				: (params.node?.rowIndex ?? 0) + 1
 		},
-		flex: 1,
+		width: 100,
 	},
 	{
 		colId: 'label',
 		headerName: 'Название',
+		resizable: false,
 		field: 'label',
-		flex: 1,
+		flex: 2,
 	},
 ]
 
 const autoGroupColumnDef: ColDef<RowData> = {
+	resizable: false,
 	headerName: 'Категория',
+	headerClass: 'header-cell',
+	cellClass: 'header-cell',
 	flex: 1,
 	cellRendererParams: {
 		suppressCount: true,
@@ -91,3 +97,9 @@ function getPath(item: TreeItem): string[] {
 		.map(i => i.id.toString())
 }
 </script>
+
+<style>
+.header-cell {
+	border-right: 1px solid #cacaca;
+}
+</style>

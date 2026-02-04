@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import TreeGrid from './TreeGrid.vue'
-import { items } from './mock-data'
-import type { TreeItemId } from './types'
+import { items } from '../shared/mock-data'
+import type { TreeItemId } from '../shared/types'
 
 interface RowData {
 	id: TreeItemId
