@@ -1,0 +1,27 @@
+{
+	"name": "mstroy-test-task",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"type-check": "vue-tsc --noEmit",
+		"build": "vue-tsc && vite build",
+		"preview": "vite preview",
+		"test": "vitest"
+	},
+	"dependencies": {
+		"@vue/test-utils": "^2.4.6",
+		"ag-grid-enterprise": "^35.0.1",
+		"ag-grid-vue3": "^35.0.1",
+		"vue": "^3.4.21"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^5.0.4",
+		"jsdom": "^28.0.0",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.0",
+		"vitest": "^4.0.18",
+		"vue-tsc": "^2.0.6"
+	}
+}
